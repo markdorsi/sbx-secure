@@ -1,0 +1,347 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Comic Sans MS', 'Marker Felt', 'Chalkboard', cursive;
+    background: linear-gradient(45deg, #ff00ff, #00ffff, #ffff00, #ff00ff);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(2px 2px at 20% 30%, white, transparent),
+        radial-gradient(2px 2px at 60% 70%, white, transparent),
+        radial-gradient(1px 1px at 50% 50%, white, transparent),
+        radial-gradient(1px 1px at 80% 10%, white, transparent),
+        radial-gradient(2px 2px at 90% 60%, white, transparent),
+        radial-gradient(1px 1px at 33% 80%, white, transparent);
+    background-size: 200% 200%;
+    animation: twinkle 3s ease-in-out infinite;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.8; }
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    perspective: 1000px;
+}
+
+.trapper-keeper {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow:
+        0 0 0 8px #ff00ff,
+        0 0 0 16px #00ffff,
+        0 0 0 24px #ffff00,
+        0 20px 60px rgba(0,0,0,0.5),
+        inset 0 0 80px rgba(255,255,255,0.2);
+    position: relative;
+    transform: rotateX(2deg);
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: rotateX(2deg) translateY(0px); }
+    50% { transform: rotateX(2deg) translateY(-10px); }
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.neon-text {
+    font-size: 3rem;
+    color: #fff;
+    text-shadow:
+        0 0 10px #fff,
+        0 0 20px #fff,
+        0 0 30px #ff00de,
+        0 0 40px #ff00de,
+        0 0 50px #ff00de,
+        0 0 60px #ff00de,
+        0 0 70px #ff00de;
+    animation: flicker 2.5s infinite alternate;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+}
+
+@keyframes flicker {
+    0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        text-shadow:
+            0 0 10px #fff,
+            0 0 20px #fff,
+            0 0 30px #ff00de,
+            0 0 40px #ff00de,
+            0 0 50px #ff00de,
+            0 0 60px #ff00de,
+            0 0 70px #ff00de;
+    }
+    20%, 24%, 55% {
+        text-shadow: none;
+    }
+}
+
+.zigzag {
+    height: 10px;
+    background:
+        linear-gradient(135deg, #ff0080 25%, transparent 25%),
+        linear-gradient(225deg, #ff0080 25%, transparent 25%),
+        linear-gradient(315deg, #00ff80 25%, transparent 25%),
+        linear-gradient(45deg, #00ff80 25%, transparent 25%);
+    background-size: 20px 20px;
+    background-position: 0 0, 10px 0, 10px -10px, 0 -10px;
+    animation: zigzagScroll 1s linear infinite;
+}
+
+@keyframes zigzagScroll {
+    0% { background-position: 0 0, 10px 0, 10px -10px, 0 -10px; }
+    100% { background-position: 20px 0, 30px 0, 30px -10px, 20px -10px; }
+}
+
+.screen {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 30px;
+    min-height: 400px;
+    box-shadow: inset 0 0 30px rgba(0,0,0,0.1);
+    border: 3px solid #fff;
+}
+
+.hidden {
+    display: none;
+}
+
+.login-box {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.login-box h2 {
+    color: #764ba2;
+    font-size: 2rem;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.input-group {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+input[type="text"] {
+    flex: 1;
+    min-width: 200px;
+    padding: 15px 20px;
+    border: 3px solid #764ba2;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-family: 'Comic Sans MS', cursive;
+    background: #fff;
+    box-shadow: 3px 3px 0 #ff00ff;
+    transition: all 0.3s;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0 #ff00ff;
+}
+
+.rad-button, .send-button {
+    padding: 15px 30px;
+    background: linear-gradient(45deg, #ff00ff, #00ffff);
+    border: 3px solid #fff;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: bold;
+    font-family: 'Comic Sans MS', cursive;
+    cursor: pointer;
+    box-shadow: 3px 3px 0 rgba(0,0,0,0.3);
+    transition: all 0.3s;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.rad-button:hover, .send-button:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0 rgba(0,0,0,0.3);
+}
+
+.rad-button:active, .send-button:active {
+    transform: translate(1px, 1px);
+    box-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+}
+
+.info-text {
+    color: #764ba2;
+    font-style: italic;
+    margin-top: 10px;
+}
+
+.chat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: linear-gradient(90deg, #ff00ff, #00ffff);
+    border-radius: 10px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.current-user {
+    font-size: 1.2rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+
+.online-count {
+    font-size: 1rem;
+}
+
+.messages-container {
+    height: 400px;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    padding: 20px;
+    background: rgba(255,255,255,0.5);
+    border-radius: 10px;
+    border: 3px dashed #764ba2;
+}
+
+.messages-container::-webkit-scrollbar {
+    width: 10px;
+}
+
+.messages-container::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.5);
+    border-radius: 5px;
+}
+
+.messages-container::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #ff00ff, #00ffff);
+    border-radius: 5px;
+}
+
+.welcome-message {
+    text-align: center;
+    color: #764ba2;
+    font-style: italic;
+    padding: 20px;
+    background: rgba(255,255,0,0.2);
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.message {
+    margin-bottom: 15px;
+    padding: 12px 16px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, rgba(255,0,255,0.1), rgba(0,255,255,0.1));
+    border-left: 4px solid #ff00ff;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.message-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.message-user {
+    font-weight: bold;
+    color: #764ba2;
+}
+
+.message-time {
+    font-size: 0.8rem;
+    color: #666;
+    font-style: italic;
+}
+
+.message-text {
+    color: #333;
+    word-wrap: break-word;
+}
+
+.input-area {
+    display: flex;
+    gap: 10px;
+}
+
+#message-input {
+    flex: 1;
+}
+
+.send-button {
+    padding: 15px 25px;
+}
+
+@media (max-width: 600px) {
+    .neon-text {
+        font-size: 2rem;
+    }
+
+    .trapper-keeper {
+        padding: 20px;
+    }
+
+    .screen {
+        padding: 20px;
+    }
+
+    .messages-container {
+        height: 300px;
+    }
+
+    .input-group {
+        flex-direction: column;
+    }
+
+    input[type="text"] {
+        width: 100%;
+    }
+}

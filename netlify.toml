@@ -1,6 +1,7 @@
 [build]
-  publish = "public"
-  command = ""
+  publish = "dist"
+  command = "npm run build"
+  functions = "netlify/functions"
 
 [context.deploy-preview]
   command = ""
