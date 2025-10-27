@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RetroChat 90s</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="container">
+        <div class="trapper-keeper">
+            <div class="header">
+                <h1 class="neon-text">RetroChat 90s</h1>
+                <div class="zigzag"></div>
+            </div>
+
+            <div id="login-screen" class="screen">
+                <div class="login-box">
+                    <h2>Choose Your Username</h2>
+                    <div class="input-group">
+                        <input type="text" id="username-input" placeholder="Enter username..." maxlength="20">
+                        <button id="join-btn" class="rad-button">Join Chat!</button>
+                    </div>
+                    <p class="info-text">Pick something rad!</p>
+                </div>
+            </div>
+
+            <div id="chat-screen" class="screen hidden">
+                <div class="chat-header">
+                    <span id="current-user" class="current-user"></span>
+                    <span class="online-count">👥 <span id="user-count">0</span> online</span>
+                </div>
+
+                <div class="messages-container" id="messages-container">
+                    <div class="welcome-message">
+                        Welcome to RetroChat 90s! Start chatting below.
+                    </div>
+                </div>
+
+                <div class="input-area">
+                    <input type="text" id="message-input" placeholder="Type your message..." maxlength="500">
+                    <button id="send-btn" class="send-button">Send</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="/main.js"></script>
+</body>
+</html>
